@@ -19,7 +19,7 @@ const Services = () => {
     {
       icon: Smartphone,
       title: "Aplicaciones Móviles",
-      description: "Desarrollo de apps nativas y híbridas que ofrecen experiencias excepcionales en cualquier dispositivo.",
+      description: "Desarrollo de apps nativas e híbridas que ofrecen experiencias excepcionales en cualquier dispositivo.",
       features: ["iOS & Android", "React Native", "UX/UI Moderno"]
     },
     {
@@ -43,13 +43,13 @@ const Services = () => {
   ];
 
   return (
-    <section id="servicios" className="py-20 bg-white">
+    <section id="servicios" className="py-20 bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl font-bold text-white mb-4">
             Nuestros Servicios
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             Ofrecemos soluciones tecnológicas integrales que transforman la manera 
             en que tu empresa opera y crece.
           </p>
@@ -59,24 +59,24 @@ const Services = () => {
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-md hover:-translate-y-2">
+              <Card key={index} className="group hover:shadow-2xl transition-all duration-300 bg-gray-800 border-gray-700 hover:border-yellow-400/50 hover:-translate-y-2">
                 <CardContent className="p-8">
-                  <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors">
-                    <Icon className="w-8 h-8 text-blue-600 group-hover:text-white transition-colors" />
+                  <div className="w-16 h-16 bg-yellow-400/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-yellow-400 transition-colors border border-yellow-400/30">
+                    <Icon className="w-8 h-8 text-yellow-400 group-hover:text-gray-900 transition-colors" />
                   </div>
                   
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  <h3 className="text-xl font-bold text-white mb-4">
                     {service.title}
                   </h3>
                   
-                  <p className="text-gray-600 mb-6">
+                  <p className="text-gray-300 mb-6">
                     {service.description}
                   </p>
                   
                   <ul className="space-y-2">
                     {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center text-sm text-gray-600">
-                        <div className="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
+                      <li key={idx} className="flex items-center text-sm text-gray-400">
+                        <div className="w-2 h-2 bg-yellow-400 rounded-full mr-3"></div>
                         {feature}
                       </li>
                     ))}
