@@ -92,30 +92,34 @@
   }
 
   body {
-    @apply bg-black text-foreground;
+    @apply bg-black text-foreground font-inter;
     background: #000000;
     background-image: 
-      radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.01) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.008) 0%, transparent 50%),
-      radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.005) 0%, transparent 50%);
+      radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.003) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.002) 0%, transparent 50%),
+      radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.001) 0%, transparent 50%);
   }
 
   html {
     background: #000000;
+    font-family: 'Inter', system-ui, sans-serif;
   }
 
   #root {
     background: #000000;
     min-height: 100vh;
+    font-family: 'Inter', system-ui, sans-serif;
   }
 }
+
+/* ... keep existing code (all animations and utilities) */
 
 /* Apple-style premium black background */
 .apple-black-bg {
   background: #000000;
   background-image: 
-    radial-gradient(ellipse at top, rgba(255, 255, 255, 0.01) 0%, transparent 50%),
-    radial-gradient(ellipse at bottom, rgba(255, 255, 255, 0.008) 0%, transparent 50%);
+    radial-gradient(ellipse at top, rgba(255, 255, 255, 0.002) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom, rgba(255, 255, 255, 0.001) 0%, transparent 50%);
 }
 
 /* Modern animations with professional touch */
