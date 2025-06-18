@@ -1,4 +1,5 @@
 
+
 import { Button } from "@/components/ui/button";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
@@ -30,6 +31,14 @@ const Header = () => {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     }
+  };
+
+  const handlePortfolioClick = () => {
+    navigate('/portafolio');
+    // Scroll to top after navigation
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 100);
   };
 
   const handleConsultationClick = (type: string) => {
@@ -108,10 +117,13 @@ const Header = () => {
             Servicios
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
           </button>
-          <Link to="/portafolio" className="relative text-gray-200 hover:text-yellow-400 transition-all duration-300 font-medium group px-2 py-1">
+          <button 
+            onClick={handlePortfolioClick}
+            className="relative text-gray-200 hover:text-yellow-400 transition-all duration-300 font-medium group px-2 py-1 cursor-pointer"
+          >
             Portafolio
             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
-          </Link>
+          </button>
           <button 
             onClick={() => handleNavClick('sobre-nosotros')} 
             className="relative text-gray-200 hover:text-yellow-400 transition-all duration-300 font-medium cursor-pointer group px-2 py-1"
@@ -190,3 +202,4 @@ const Header = () => {
 };
 
 export default Header;
+
