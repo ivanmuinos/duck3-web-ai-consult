@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, MessageCircle, Calendar } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Contact = () => {
   const handleCalendlyClick = () => {
@@ -53,8 +54,8 @@ const Contact = () => {
             <Button size="lg" className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-8 py-3 text-lg font-semibold">
               Consulta Gratuita
             </Button>
-            <Button variant="outline" size="lg" className="border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-yellow-400 hover:border-yellow-400 px-8 py-3 text-lg">
-              Ver Portafolio
+            <Button asChild variant="outline" size="lg" className="border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-yellow-400 hover:border-yellow-400 px-8 py-3 text-lg">
+              <Link to="/portafolio">Ver Portafolio</Link>
             </Button>
           </div>
         </div>
