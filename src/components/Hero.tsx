@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Code, Bot } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -19,14 +18,19 @@ const Hero = () => {
   };
 
   return (
-    <section className="pt-32 pb-20 bg-gradient-to-br from-black via-gray-900 to-blue-900 relative overflow-hidden">
-      {/* Animated neural network background */}
-      <div className="absolute inset-0 neural-network-bg"></div>
+    <section className="pt-32 pb-20 bg-gradient-to-br from-slate-900/20 via-blue-900/30 to-slate-800/20 relative overflow-hidden backdrop-blur-sm">
+      {/* Enhanced neural network background for Apple-style premium look */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/10 via-slate-800/20 to-blue-950/15"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.03)_0%,transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(30,58,138,0.02)_0%,transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(37,99,235,0.02)_0%,transparent_50%)]"></div>
+      </div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-8">
-            <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-gray-800/80 to-gray-700/80 backdrop-blur-sm text-yellow-400 px-6 py-3 rounded-full text-sm font-semibold mb-6 border border-gray-600/50 shadow-lg hover:shadow-yellow-400/20 transition-all duration-300">
+            <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-slate-800/60 to-blue-900/40 backdrop-blur-md text-yellow-400 px-6 py-3 rounded-full text-sm font-semibold mb-6 border border-slate-600/30 shadow-2xl hover:shadow-yellow-400/10 transition-all duration-300">
               <Bot className="w-5 h-5 text-blue-400" />
               <span className="text-white">Especialistas en IA y Desarrollo Web</span>
             </div>
@@ -54,7 +58,7 @@ const Hero = () => {
             <Button 
               variant="outline" 
               size="lg" 
-              className="px-8 py-4 text-lg border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black font-semibold transition-all duration-300"
+              className="px-8 py-4 text-lg border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black font-semibold transition-all duration-300 backdrop-blur-sm"
               onClick={handleViewPortfolio}
             >
               Ver Casos de Éxito
@@ -63,7 +67,7 @@ const Hero = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
             <div className="text-center animate-slide-in-from-bottom-2 delay-600">
-              <div className="w-20 h-20 bg-gradient-to-br from-gray-700/50 to-gray-800/50 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-gray-600/30 hover:border-yellow-400/50 transition-all duration-300 animate-float-up-down">
+              <div className="w-20 h-20 bg-gradient-to-br from-slate-700/40 to-blue-800/40 backdrop-blur-md rounded-full flex items-center justify-center mx-auto mb-4 border border-slate-500/20 hover:border-yellow-400/30 transition-all duration-300 animate-float-up-down shadow-lg">
                 <Code className="w-10 h-10 text-yellow-400" />
               </div>
               <h3 className="font-bold text-white mb-2 text-lg">Desarrollo Web</h3>
@@ -71,7 +75,7 @@ const Hero = () => {
             </div>
             
             <div className="text-center animate-slide-in-from-bottom-2 delay-700">
-              <div className="w-20 h-20 bg-gradient-to-br from-gray-700/50 to-gray-800/50 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-gray-600/30 hover:border-blue-400/50 transition-all duration-300 animate-float-up-down delay-1000">
+              <div className="w-20 h-20 bg-gradient-to-br from-slate-700/40 to-blue-800/40 backdrop-blur-md rounded-full flex items-center justify-center mx-auto mb-4 border border-slate-500/20 hover:border-blue-400/30 transition-all duration-300 animate-float-up-down delay-1000 shadow-lg">
                 <Bot className="w-10 h-10 text-blue-400" />
               </div>
               <h3 className="font-bold text-white mb-2 text-lg">Automatización IA</h3>
@@ -79,7 +83,7 @@ const Hero = () => {
             </div>
             
             <div className="text-center animate-slide-in-from-bottom-2 delay-800">
-              <div className="w-20 h-20 bg-gradient-to-br from-gray-700/50 to-gray-800/50 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 border border-gray-600/30 hover:border-yellow-400/50 transition-all duration-300 relative overflow-hidden animate-float-up-down delay-500">
+              <div className="w-20 h-20 bg-gradient-to-br from-slate-700/40 to-blue-800/40 backdrop-blur-md rounded-full flex items-center justify-center mx-auto mb-4 border border-slate-500/20 hover:border-yellow-400/30 transition-all duration-300 relative overflow-hidden animate-float-up-down delay-500 shadow-lg">
                 <svg
                   width="44"
                   height="44"

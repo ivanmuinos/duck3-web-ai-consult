@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,81 +7,81 @@
 
 @layer base {
   :root {
-    --background: 0 0% 0%;
+    --background: 220 40% 4%;
     --foreground: 222.2 84% 4.9%;
 
-    --card: 0 0% 3%;
+    --card: 220 35% 6%;
     --card-foreground: 222.2 84% 4.9%;
 
-    --popover: 0 0% 2%;
+    --popover: 220 40% 3%;
     --popover-foreground: 222.2 84% 4.9%;
 
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 0 0% 8%;
+    --secondary: 220 30% 8%;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
-    --muted: 0 0% 6%;
+    --muted: 220 25% 7%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 0 0% 8%;
+    --accent: 220 30% 8%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 0 0% 12%;
-    --input: 0 0% 12%;
+    --border: 220 20% 12%;
+    --input: 220 20% 12%;
     --ring: 222.2 84% 4.9%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 2%;
+    --sidebar-background: 220 40% 3%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 8%;
+    --sidebar-accent: 220 30% 8%;
     --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 0 0% 12%;
+    --sidebar-border: 220 20% 12%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 0 0% 0%;
+    --background: 220 40% 4%;
     --foreground: 210 40% 98%;
 
-    --card: 0 0% 3%;
+    --card: 220 35% 6%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 2%;
+    --popover: 220 40% 3%;
     --popover-foreground: 210 40% 98%;
 
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
 
-    --secondary: 0 0% 8%;
+    --secondary: 220 30% 8%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 0 0% 6%;
+    --muted: 220 25% 7%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 0 0% 8%;
+    --accent: 220 30% 8%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 0 0% 12%;
-    --input: 0 0% 12%;
+    --border: 220 20% 12%;
+    --input: 220 20% 12%;
     --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 0 0% 2%;
+    --sidebar-background: 220 40% 3%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 8%;
+    --sidebar-accent: 220 30% 8%;
     --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 0 0% 12%;
+    --sidebar-border: 220 20% 12%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
@@ -91,33 +92,74 @@
   }
 
   body {
-    @apply bg-black text-foreground;
-    background: #000000;
-    background-image: 
-      radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.003) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.002) 0%, transparent 50%),
-      radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.001) 0%, transparent 50%);
+    @apply bg-background text-foreground;
+    background: linear-gradient(135deg, 
+      #0a0d1a 0%, 
+      #1a1f3a 25%, 
+      #0f1419 50%, 
+      #1e2237 75%, 
+      #0a0d1a 100%
+    );
+    background-attachment: fixed;
+    background-size: 400% 400%;
+    animation: gradient-shift 20s ease infinite;
     font-family: 'PP Right Grotesk Compact Dark', 'Manrope', system-ui, sans-serif;
+    min-height: 100vh;
   }
 
   html {
-    background: #000000;
+    background: linear-gradient(135deg, 
+      #0a0d1a 0%, 
+      #1a1f3a 25%, 
+      #0f1419 50%, 
+      #1e2237 75%, 
+      #0a0d1a 100%
+    );
+    background-attachment: fixed;
     font-family: 'PP Right Grotesk Compact Dark', 'Manrope', system-ui, sans-serif;
   }
 
   #root {
-    background: #000000;
+    background: transparent;
     min-height: 100vh;
     font-family: 'PP Right Grotesk Compact Dark', 'Manrope', system-ui, sans-serif;
   }
 }
 
-/* Apple-style premium black background */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Apple-style premium dark blue background */
 .apple-black-bg {
-  background: #000000;
-  background-image: 
-    radial-gradient(ellipse at top, rgba(255, 255, 255, 0.002) 0%, transparent 50%),
-    radial-gradient(ellipse at bottom, rgba(255, 255, 255, 0.001) 0%, transparent 50%);
+  background: linear-gradient(135deg, 
+    #0a0d1a 0%, 
+    #1a1f3a 20%, 
+    #0f1419 40%, 
+    #1e2237 60%, 
+    #0d1523 80%, 
+    #0a0d1a 100%
+  );
+  background-attachment: fixed;
+  background-size: 300% 300%;
+  animation: subtle-gradient-shift 25s ease infinite;
+}
+
+@keyframes subtle-gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  33% {
+    background-position: 100% 0%;
+  }
+  66% {
+    background-position: 0% 100%;
+  }
 }
 
 /* Modern animations with professional touch */
