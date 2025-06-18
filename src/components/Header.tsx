@@ -1,8 +1,23 @@
 
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
+  const location = useLocation();
+  
+  const handleNavClick = (sectionId: string) => {
+    if (location.pathname !== '/') {
+      // Si no estamos en la página principal, navegamos ahí primero
+      window.location.href = `/#${sectionId}`;
+    } else {
+      // Si ya estamos en la página principal, solo hacemos scroll
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md border-b border-yellow-400/30">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -58,18 +73,27 @@ const Header = () => {
         </Link>
         
         <nav className="hidden md:flex items-center space-x-8">
-          <a href="#servicios" className="text-gray-200 hover:text-yellow-400 transition-colors font-medium">
+          <button 
+            onClick={() => handleNavClick('servicios')} 
+            className="text-gray-200 hover:text-yellow-400 transition-colors font-medium cursor-pointer"
+          >
             Servicios
-          </a>
+          </button>
           <Link to="/portafolio" className="text-gray-200 hover:text-yellow-400 transition-colors font-medium">
             Portafolio
           </Link>
-          <a href="#sobre-nosotros" className="text-gray-200 hover:text-yellow-400 transition-colors font-medium">
+          <button 
+            onClick={() => handleNavClick('sobre-nosotros')} 
+            className="text-gray-200 hover:text-yellow-400 transition-colors font-medium cursor-pointer"
+          >
             Sobre Nosotros
-          </a>
-          <a href="#contacto" className="text-gray-200 hover:text-yellow-400 transition-colors font-medium">
+          </button>
+          <button 
+            onClick={() => handleNavClick('contacto')} 
+            className="text-gray-200 hover:text-yellow-400 transition-colors font-medium cursor-pointer"
+          >
             Contacto
-          </a>
+          </button>
         </nav>
 
         <Button className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold shadow-lg border border-yellow-300">
