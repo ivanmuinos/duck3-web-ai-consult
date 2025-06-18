@@ -19,8 +19,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'ppright': ['"PP Right Grotesk"', 'system-ui', 'sans-serif'],
-				'sans': ['"PP Right Grotesk"', 'system-ui', 'sans-serif'],
+				'ppright': ['"PP Right Grotesk Compact Dark"', 'Manrope', 'system-ui', 'sans-serif'],
+				'sans': ['"PP Right Grotesk Compact Dark"', 'Manrope', 'system-ui', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
