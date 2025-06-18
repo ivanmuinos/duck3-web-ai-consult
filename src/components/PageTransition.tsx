@@ -14,7 +14,7 @@ const PageTransition = ({ children }: { children: React.ReactNode }) => {
       const timer = setTimeout(() => {
         setDisplayChildren(children);
         setIsTransitioning(false);
-      }, 300);
+      }, 200); // Reducido de 300ms a 200ms para más fluidez
 
       return () => clearTimeout(timer);
     }
@@ -22,18 +22,18 @@ const PageTransition = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div className="relative min-h-screen">
-      {/* Transition overlay */}
+      {/* Overlay de transición más suave */}
       <div 
-        className={`fixed inset-0 z-50 bg-gradient-to-br from-black via-gray-900 to-blue-900 transition-opacity duration-300 pointer-events-none ${
+        className={`fixed inset-0 z-50 bg-gradient-to-br from-gray-900/80 via-gray-800/60 to-blue-900/40 transition-opacity duration-200 pointer-events-none ${
           isTransitioning ? 'opacity-100' : 'opacity-0'
         }`}
       >
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center">
-            <div className="w-16 h-16 bg-gradient-to-br from-yellow-300 to-yellow-500 rounded-xl flex items-center justify-center shadow-2xl border-2 border-yellow-300 relative overflow-hidden mx-auto animate-spin">
+            <div className="w-12 h-12 bg-gradient-to-br from-yellow-300 to-yellow-500 rounded-xl flex items-center justify-center shadow-lg border border-yellow-300/50 relative overflow-hidden mx-auto animate-spin">
               <svg
-                width="32"
-                height="32"
+                width="24"
+                height="24"
                 viewBox="0 0 40 40"
                 fill="none"
                 className="text-black"
@@ -46,16 +46,16 @@ const PageTransition = ({ children }: { children: React.ReactNode }) => {
                 <text x="31" y="31" fontSize="9" fontWeight="bold" fill="currentColor" className="font-mono">3</text>
               </svg>
             </div>
-            <p className="text-yellow-400 text-sm mt-2 font-medium">Cargando...</p>
+            <p className="text-yellow-400 text-xs mt-2 font-medium opacity-80">Cargando...</p>
           </div>
         </div>
       </div>
 
-      {/* Page content with smooth transitions */}
+      {/* Contenido de la página con transiciones más suaves */}
       <div 
-        className={`transition-all duration-500 ease-out ${
+        className={`transition-all duration-300 ease-out ${
           isTransitioning 
-            ? 'opacity-0 transform translate-y-8 scale-95' 
+            ? 'opacity-0 transform translate-y-4 scale-99' 
             : 'opacity-100 transform translate-y-0 scale-100'
         }`}
       >
