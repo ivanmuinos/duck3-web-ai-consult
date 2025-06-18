@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Code, Bot } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -18,13 +19,13 @@ const Hero = () => {
   };
 
   return (
-    <section className="pt-32 pb-20 bg-gradient-to-br from-slate-900/20 via-blue-900/30 to-slate-800/20 relative overflow-hidden backdrop-blur-sm">
+    <section className="pt-32 pb-20 bg-gradient-to-br from-black/40 via-slate-900/20 to-black/60 relative overflow-hidden backdrop-blur-sm">
       {/* Enhanced neural network background for Apple-style premium look */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/10 via-slate-800/20 to-blue-950/15"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.03)_0%,transparent_50%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(30,58,138,0.02)_0%,transparent_50%)]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(37,99,235,0.02)_0%,transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-black/20 via-slate-900/10 to-black/30"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.02)_0%,transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(30,58,138,0.01)_0%,transparent_50%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(37,99,235,0.01)_0%,transparent_50%)]"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
