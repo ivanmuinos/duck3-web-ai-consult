@@ -12,7 +12,7 @@ import PageTransition from "@/components/PageTransition";
 const Index = () => {
   return (
     <PageTransition>
-      <div className="min-h-screen relative">
+      <div className="min-h-screen relative bg-black apple-black-bg">
         <AnimatedBackground />
         <ScrollAnimations />
         <div className="relative z-20">
