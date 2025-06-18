@@ -102,7 +102,7 @@ const Header = () => {
             </svg>
             <div className="absolute -inset-2 bg-gradient-to-r from-cyan-400/20 to-pink-400/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
           </div>
-          <span className="text-4xl font-black text-yellow-400 font-inter tracking-wider transition-all duration-500 group-hover:text-yellow-300 group-hover:tracking-widest">
+          <span className="text-4xl font-black text-yellow-400 font-ppright tracking-wider transition-all duration-500 group-hover:text-yellow-300 group-hover:tracking-widest">
             duck3
           </span>
         </Link>
@@ -111,28 +111,28 @@ const Header = () => {
         <nav className="hidden md:flex items-center space-x-10">
           <button 
             onClick={() => handleNavClick('servicios')} 
-            className="relative text-gray-200 hover:text-yellow-400 transition-all duration-500 font-inter font-bold tracking-wide cursor-pointer group px-3 py-2 text-lg"
+            className="relative text-gray-200 hover:text-yellow-400 transition-all duration-500 font-ppright font-bold tracking-wide cursor-pointer group px-3 py-2 text-lg"
           >
             SERVICIOS
             <span className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-yellow-400 to-yellow-500 transition-all duration-500 group-hover:w-full"></span>
           </button>
           <button 
             onClick={handlePortfolioClick}
-            className="relative text-gray-200 hover:text-yellow-400 transition-all duration-500 font-inter font-bold tracking-wide group px-3 py-2 cursor-pointer text-lg"
+            className="relative text-gray-200 hover:text-yellow-400 transition-all duration-500 font-ppright font-bold tracking-wide group px-3 py-2 cursor-pointer text-lg"
           >
             PORTAFOLIO
             <span className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-yellow-400 to-yellow-500 transition-all duration-500 group-hover:w-full"></span>
           </button>
           <button 
             onClick={() => handleNavClick('sobre-nosotros')} 
-            className="relative text-gray-200 hover:text-yellow-400 transition-all duration-500 font-inter font-bold tracking-wide cursor-pointer group px-3 py-2 text-lg"
+            className="relative text-gray-200 hover:text-yellow-400 transition-all duration-500 font-ppright font-bold tracking-wide cursor-pointer group px-3 py-2 text-lg"
           >
             NOSOTROS
             <span className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-yellow-400 to-yellow-500 transition-all duration-500 group-hover:w-full"></span>
           </button>
           <button 
             onClick={() => handleNavClick('contacto')} 
-            className="relative text-gray-200 hover:text-yellow-400 transition-all duration-500 font-inter font-bold tracking-wide cursor-pointer group px-3 py-2 text-lg"
+            className="relative text-gray-200 hover:text-yellow-400 transition-all duration-500 font-ppright font-bold tracking-wide cursor-pointer group px-3 py-2 text-lg"
           >
             CONTACTO
             <span className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-yellow-400 to-yellow-500 transition-all duration-500 group-hover:w-full"></span>
@@ -149,54 +149,54 @@ const Header = () => {
             </SheetTrigger>
             <SheetContent side="right" className="w-80 bg-black/95 backdrop-blur-xl border-l border-yellow-400/20">
               <SheetHeader>
-                <SheetTitle className="text-yellow-400 text-xl font-inter font-bold tracking-wide">NAVEGACIÓN</SheetTitle>
+                <SheetTitle className="text-yellow-400 text-xl font-ppright font-bold tracking-wide">NAVEGACIÓN</SheetTitle>
               </SheetHeader>
               <div className="flex flex-col space-y-6 mt-12">
                 <button 
                   onClick={() => handleNavClick('servicios')} 
-                  className="text-left text-gray-200 hover:text-yellow-400 transition-all duration-500 font-inter font-bold tracking-wide py-4 px-6 rounded-xl hover:bg-yellow-400/10 text-lg"
+                  className="text-left text-gray-200 hover:text-yellow-400 transition-all duration-500 font-ppright font-bold tracking-wide py-4 px-6 rounded-xl hover:bg-yellow-400/10 text-lg"
                 >
                   SERVICIOS
                 </button>
                 <button 
                   onClick={handlePortfolioClick}
-                  className="text-left text-gray-200 hover:text-yellow-400 transition-all duration-500 font-inter font-bold tracking-wide py-4 px-6 rounded-xl hover:bg-yellow-400/10 text-lg"
+                  className="text-left text-gray-200 hover:text-yellow-400 transition-all duration-500 font-ppright font-bold tracking-wide py-4 px-6 rounded-xl hover:bg-yellow-400/10 text-lg"
                 >
                   PORTAFOLIO
                 </button>
                 <button 
                   onClick={() => handleNavClick('sobre-nosotros')} 
-                  className="text-left text-gray-200 hover:text-yellow-400 transition-all duration-500 font-inter font-bold tracking-wide py-4 px-6 rounded-xl hover:bg-yellow-400/10 text-lg"
+                  className="text-left text-gray-200 hover:text-yellow-400 transition-all duration-500 font-ppright font-bold tracking-wide py-4 px-6 rounded-xl hover:bg-yellow-400/10 text-lg"
                 >
                   NOSOTROS
                 </button>
                 <button 
                   onClick={() => handleNavClick('contacto')} 
-                  className="text-left text-gray-200 hover:text-yellow-400 transition-all duration-500 font-inter font-bold tracking-wide py-4 px-6 rounded-xl hover:bg-yellow-400/10 text-lg"
+                  className="text-left text-gray-200 hover:text-yellow-400 transition-all duration-500 font-ppright font-bold tracking-wide py-4 px-6 rounded-xl hover:bg-yellow-400/10 text-lg"
                 >
                   CONTACTO
                 </button>
                 
                 <div className="mt-12 pt-6 border-t border-yellow-400/20">
-                  <p className="text-yellow-400 font-inter font-bold text-base mb-6 tracking-wide">CONSULTA GRATUITA</p>
+                  <p className="text-yellow-400 font-ppright font-bold text-base mb-6 tracking-wide">CONSULTA GRATUITA</p>
                   <div className="space-y-4">
                     <button 
                       onClick={() => handleConsultationClick('email')}
-                      className="w-full flex items-center space-x-4 text-gray-200 hover:text-yellow-400 transition-all duration-500 p-4 rounded-xl hover:bg-yellow-400/10 font-inter tracking-wide"
+                      className="w-full flex items-center space-x-4 text-gray-200 hover:text-yellow-400 transition-all duration-500 p-4 rounded-xl hover:bg-yellow-400/10 font-ppright tracking-wide"
                     >
                       <Mail className="w-6 h-6" />
                       <span className="font-bold">EMAIL</span>
                     </button>
                     <button 
                       onClick={() => handleConsultationClick('whatsapp')}
-                      className="w-full flex items-center space-x-4 text-gray-200 hover:text-yellow-400 transition-all duration-500 p-4 rounded-xl hover:bg-yellow-400/10 font-inter tracking-wide"
+                      className="w-full flex items-center space-x-4 text-gray-200 hover:text-yellow-400 transition-all duration-500 p-4 rounded-xl hover:bg-yellow-400/10 font-ppright tracking-wide"
                     >
                       <MessageCircle className="w-6 h-6" />
                       <span className="font-bold">WHATSAPP</span>
                     </button>
                     <button 
                       onClick={() => handleConsultationClick('calendar')}
-                      className="w-full flex items-center space-x-4 text-gray-200 hover:text-yellow-400 transition-all duration-500 p-4 rounded-xl hover:bg-yellow-400/10 font-inter tracking-wide"
+                      className="w-full flex items-center space-x-4 text-gray-200 hover:text-yellow-400 transition-all duration-500 p-4 rounded-xl hover:bg-yellow-400/10 font-ppright tracking-wide"
                     >
                       <Calendar className="w-6 h-6" />
                       <span className="font-bold">REUNIÓN</span>
@@ -210,15 +210,15 @@ const Header = () => {
           {/* Desktop Consultation Dropdown */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button className="hidden md:flex bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black font-inter font-black tracking-wide shadow-2xl transition-all duration-500 hover:scale-110 hover:shadow-yellow-400/25 group text-base px-6 py-3">
+              <Button className="hidden md:flex bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black font-ppright font-black tracking-wide shadow-2xl transition-all duration-500 hover:scale-110 hover:shadow-yellow-400/25 group text-base px-6 py-3">
                 CONSULTA GRATUITA
                 <ChevronDown className="w-5 h-5 ml-3 transition-transform duration-500 group-data-[state=open]:rotate-180" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-80 bg-black/95 border border-yellow-400/20 shadow-2xl backdrop-blur-xl animate-slide-in-from-top-2 rounded-2xl p-3" align="end">
               <div className="mb-4 px-4 py-3">
-                <h3 className="text-yellow-400 font-inter font-black text-xl tracking-wide">CONTÁCTANOS</h3>
-                <p className="text-gray-400 text-sm font-inter tracking-wide mt-1">Elige tu método preferido</p>
+                <h3 className="text-yellow-400 font-ppright font-black text-xl tracking-wide">CONTÁCTANOS</h3>
+                <p className="text-gray-400 text-sm font-ppright tracking-wide mt-1">Elige tu método preferido</p>
               </div>
               <DropdownMenuItem 
                 onClick={() => handleConsultationClick('email')}
