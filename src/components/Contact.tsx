@@ -1,9 +1,14 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Mail, Phone, MessageCircle, Calendar } from "lucide-react";
+import { Mail, MessageCircle, Calendar } from "lucide-react";
 
 const Contact = () => {
+  const handleCalendlyClick = () => {
+    // Reemplaza 'tu-usuario-calendly' con tu nombre de usuario real de Calendly
+    window.open('https://calendly.com/tu-usuario-calendly/30min', '_blank');
+  };
+
   return (
     <section id="contacto" className="py-20 bg-gray-900">
       <div className="container mx-auto px-4">
@@ -15,20 +20,12 @@ const Contact = () => {
             Conversemos sobre cómo duck3 puede impulsar tu empresa con tecnología inteligente.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             <Card className="bg-gray-800 border-gray-700 hover:bg-gray-700 hover:border-yellow-400/50 transition-colors">
               <CardContent className="p-6 text-center">
                 <Mail className="w-8 h-8 text-yellow-400 mx-auto mb-4" />
                 <h3 className="font-semibold text-white mb-2">Email</h3>
                 <p className="text-gray-300 text-sm">hola@duck3.dev</p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-gray-800 border-gray-700 hover:bg-gray-700 hover:border-yellow-400/50 transition-colors">
-              <CardContent className="p-6 text-center">
-                <Phone className="w-8 h-8 text-yellow-400 mx-auto mb-4" />
-                <h3 className="font-semibold text-white mb-2">Teléfono</h3>
-                <p className="text-gray-300 text-sm">+1 (555) 123-4567</p>
               </CardContent>
             </Card>
 
@@ -40,7 +37,10 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            <Card className="bg-gray-800 border-gray-700 hover:bg-gray-700 hover:border-yellow-400/50 transition-colors">
+            <Card 
+              className="bg-gray-800 border-gray-700 hover:bg-gray-700 hover:border-yellow-400/50 transition-colors cursor-pointer"
+              onClick={handleCalendlyClick}
+            >
               <CardContent className="p-6 text-center">
                 <Calendar className="w-8 h-8 text-yellow-400 mx-auto mb-4" />
                 <h3 className="font-semibold text-white mb-2">Reunión</h3>
