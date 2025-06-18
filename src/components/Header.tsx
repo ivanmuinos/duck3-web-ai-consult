@@ -28,13 +28,19 @@ const Header = () => {
       setTimeout(() => {
         const element = document.getElementById(sectionId);
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-      }, 100);
+      }, 300);
     } else {
       const element = document.getElementById(sectionId);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        // En mobile, ajustamos el offset para el header sticky
+        const headerHeight = 80;
+        const elementPosition = element.offsetTop - headerHeight;
+        window.scrollTo({
+          top: elementPosition,
+          behavior: 'smooth'
+        });
       }
     }
   };
@@ -48,6 +54,7 @@ const Header = () => {
   };
 
   const handleConsultationClick = (type: string) => {
+    setIsOpen(false); // Close mobile menu on consultation click too
     switch (type) {
       case 'email':
         window.location.href = 'mailto:hola@duck3.dev';
@@ -62,7 +69,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md border-b border-yellow-400/30 animate-fade-in">
+    <header className="sticky top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md border-b border-yellow-400/30 animate-fade-in">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center space-x-3 group">
           <div className="w-12 h-12 bg-gradient-to-br from-yellow-300 to-yellow-500 rounded-lg flex items-center justify-center shadow-xl border-2 border-yellow-300 relative overflow-hidden transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-2xl">
@@ -132,7 +139,7 @@ const Header = () => {
           </button>
         </nav>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Button and Dropdown */}
         <div className="flex items-center space-x-2">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
