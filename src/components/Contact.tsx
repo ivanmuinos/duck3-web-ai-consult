@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -55,7 +56,7 @@ const Contact = () => {
             <Card className="bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700 hover:border-yellow-400/50 transition-all duration-500 hover:scale-105 hover:shadow-2xl group animate-slide-in-from-bottom-2 delay-200">
               <CardContent className="p-6 text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
-                  <MessageCircle className="w-8 h-8 text-white" />
+                  <MessageSquare className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="font-semibold text-white mb-2 transition-colors duration-300 group-hover:text-yellow-400">WhatsApp</h3>
                 <p className="text-gray-300 text-sm">Mensaje directo</p>
