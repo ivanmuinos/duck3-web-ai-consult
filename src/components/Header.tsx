@@ -1,20 +1,48 @@
 
 import { Button } from "@/components/ui/button";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Mail, MessageCircle, Calendar, ChevronDown } from "lucide-react";
 
 const Header = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   
   const handleNavClick = (sectionId: string) => {
     if (location.pathname !== '/') {
-      // Si no estamos en la página principal, navegamos ahí primero
-      window.location.href = `/#${sectionId}`;
+      // Navegar a la página principal y luego hacer scroll
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
     } else {
       // Si ya estamos en la página principal, solo hacemos scroll
       const element = document.getElementById(sectionId);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
+    }
+  };
+
+  const handleConsultationClick = (type: string) => {
+    switch (type) {
+      case 'email':
+        window.location.href = 'mailto:hola@duck3.dev';
+        break;
+      case 'whatsapp':
+        window.open('https://wa.me/1234567890', '_blank');
+        break;
+      case 'calendar':
+        window.open('https://calendly.com/tu-usuario-calendly/30min', '_blank');
+        break;
     }
   };
 
@@ -96,9 +124,37 @@ const Header = () => {
           </button>
         </nav>
 
-        <Button className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold shadow-lg border border-yellow-300">
-          Consulta Gratuita
-        </Button>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold shadow-lg border border-yellow-300">
+              Consulta Gratuita
+              <ChevronDown className="w-4 h-4 ml-2" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="w-56 bg-gray-800 border-gray-700" align="end">
+            <DropdownMenuItem 
+              onClick={() => handleConsultationClick('email')}
+              className="text-gray-200 hover:bg-gray-700 hover:text-yellow-400 cursor-pointer"
+            >
+              <Mail className="w-4 h-4 mr-2" />
+              Enviar Email
+            </DropdownMenuItem>
+            <DropdownMenuItem 
+              onClick={() => handleConsultationClick('whatsapp')}
+              className="text-gray-200 hover:bg-gray-700 hover:text-yellow-400 cursor-pointer"
+            >
+              <MessageCircle className="w-4 h-4 mr-2" />
+              WhatsApp
+            </DropdownMenuItem>
+            <DropdownMenuItem 
+              onClick={() => handleConsultationClick('calendar')}
+              className="text-gray-200 hover:bg-gray-700 hover:text-yellow-400 cursor-pointer"
+            >
+              <Calendar className="w-4 h-4 mr-2" />
+              Agendar Reunión
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
     </header>
   );
