@@ -47,16 +47,16 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md border-b border-yellow-400/30">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md border-b border-yellow-400/30 animate-fade-in">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <Link to="/" className="flex items-center space-x-3">
-          <div className="w-12 h-12 bg-gradient-to-br from-yellow-300 to-yellow-500 rounded-lg flex items-center justify-center shadow-xl border-2 border-yellow-300 relative overflow-hidden">
+        <Link to="/" className="flex items-center space-x-3 group">
+          <div className="w-12 h-12 bg-gradient-to-br from-yellow-300 to-yellow-500 rounded-lg flex items-center justify-center shadow-xl border-2 border-yellow-300 relative overflow-hidden transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-2xl">
             <svg
               width="32"
               height="32"
               viewBox="0 0 40 40"
               fill="none"
-              className="text-black relative z-10"
+              className="text-black relative z-10 transition-transform duration-300 group-hover:scale-110"
             >
               {/* Duck body with circuit patterns */}
               <ellipse cx="20" cy="26" rx="13" ry="8" fill="currentColor"/>
@@ -97,61 +97,90 @@ const Header = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/30 to-pink-400/30 animate-pulse"></div>
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-yellow-400/20"></div>
           </div>
-          <span className="text-3xl font-bold text-yellow-400">duck3</span>
+          <span className="text-3xl font-bold text-yellow-400 transition-all duration-300 group-hover:text-yellow-300">duck3</span>
         </Link>
         
         <nav className="hidden md:flex items-center space-x-8">
           <button 
             onClick={() => handleNavClick('servicios')} 
-            className="text-gray-200 hover:text-yellow-400 transition-colors font-medium cursor-pointer"
+            className="relative text-gray-200 hover:text-yellow-400 transition-all duration-300 font-medium cursor-pointer group px-2 py-1"
           >
             Servicios
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
           </button>
-          <Link to="/portafolio" className="text-gray-200 hover:text-yellow-400 transition-colors font-medium">
+          <Link to="/portafolio" className="relative text-gray-200 hover:text-yellow-400 transition-all duration-300 font-medium group px-2 py-1">
             Portafolio
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
           </Link>
           <button 
             onClick={() => handleNavClick('sobre-nosotros')} 
-            className="text-gray-200 hover:text-yellow-400 transition-colors font-medium cursor-pointer"
+            className="relative text-gray-200 hover:text-yellow-400 transition-all duration-300 font-medium cursor-pointer group px-2 py-1"
           >
             Sobre Nosotros
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
           </button>
           <button 
             onClick={() => handleNavClick('contacto')} 
-            className="text-gray-200 hover:text-yellow-400 transition-colors font-medium cursor-pointer"
+            className="relative text-gray-200 hover:text-yellow-400 transition-all duration-300 font-medium cursor-pointer group px-2 py-1"
           >
             Contacto
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
           </button>
         </nav>
 
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold shadow-lg border border-yellow-300">
+            <Button className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black font-bold shadow-lg border border-yellow-300 transition-all duration-300 hover:scale-105 hover:shadow-xl group">
               Consulta Gratuita
-              <ChevronDown className="w-4 h-4 ml-2" />
+              <ChevronDown className="w-4 h-4 ml-2 transition-transform duration-300 group-data-[state=open]:rotate-180" />
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent className="w-56 bg-gray-800 border-gray-700" align="end">
+          <DropdownMenuContent className="w-80 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 border border-yellow-400/30 shadow-2xl backdrop-blur-xl animate-slide-in-from-top-2 rounded-xl p-2" align="end">
+            <div className="mb-3 px-3 py-2">
+              <h3 className="text-yellow-400 font-semibold text-lg">Contáctanos</h3>
+              <p className="text-gray-400 text-sm">Elige tu método preferido</p>
+            </div>
             <DropdownMenuItem 
               onClick={() => handleConsultationClick('email')}
-              className="text-gray-200 hover:bg-gray-700 hover:text-yellow-400 cursor-pointer"
+              className="text-gray-200 hover:bg-gradient-to-r hover:from-yellow-400/10 hover:to-yellow-500/10 hover:text-yellow-400 cursor-pointer rounded-lg p-4 mb-2 transition-all duration-300 hover:scale-[1.02] group border border-transparent hover:border-yellow-400/20"
             >
-              <Mail className="w-4 h-4 mr-2" />
-              Enviar Email
+              <div className="flex items-center space-x-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                  <Mail className="w-6 h-6 text-white" />
+                </div>
+                <div className="flex-1">
+                  <div className="font-semibold">Enviar Email</div>
+                  <div className="text-sm text-gray-400">Respuesta en 24 hrs</div>
+                </div>
+              </div>
             </DropdownMenuItem>
             <DropdownMenuItem 
               onClick={() => handleConsultationClick('whatsapp')}
-              className="text-gray-200 hover:bg-gray-700 hover:text-yellow-400 cursor-pointer"
+              className="text-gray-200 hover:bg-gradient-to-r hover:from-green-400/10 hover:to-green-500/10 hover:text-yellow-400 cursor-pointer rounded-lg p-4 mb-2 transition-all duration-300 hover:scale-[1.02] group border border-transparent hover:border-yellow-400/20"
             >
-              <MessageCircle className="w-4 h-4 mr-2" />
-              WhatsApp
+              <div className="flex items-center space-x-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                  <MessageCircle className="w-6 h-6 text-white" />
+                </div>
+                <div className="flex-1">
+                  <div className="font-semibold">WhatsApp</div>
+                  <div className="text-sm text-gray-400">Chat inmediato</div>
+                </div>
+              </div>
             </DropdownMenuItem>
             <DropdownMenuItem 
               onClick={() => handleConsultationClick('calendar')}
-              className="text-gray-200 hover:bg-gray-700 hover:text-yellow-400 cursor-pointer"
+              className="text-gray-200 hover:bg-gradient-to-r hover:from-purple-400/10 hover:to-purple-500/10 hover:text-yellow-400 cursor-pointer rounded-lg p-4 transition-all duration-300 hover:scale-[1.02] group border border-transparent hover:border-yellow-400/20"
             >
-              <Calendar className="w-4 h-4 mr-2" />
-              Agendar Reunión
+              <div className="flex items-center space-x-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                  <Calendar className="w-6 h-6 text-white" />
+                </div>
+                <div className="flex-1">
+                  <div className="font-semibold">Agendar Reunión</div>
+                  <div className="text-sm text-gray-400">Videollamada 30 min</div>
+                </div>
+              </div>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
