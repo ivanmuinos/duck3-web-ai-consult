@@ -1,10 +1,9 @@
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github, Calendar, Users, Zap } from "lucide-react";
+import { Github, Calendar, Users } from "lucide-react";
 
 const Portfolio = () => {
   const projects = [
@@ -171,14 +170,11 @@ const Portfolio = () => {
                     ))}
                   </div>
 
-                  {/* Action Buttons */}
-                  <div className="flex gap-2 pt-2">
-                    <Button size="sm" className="flex-1 bg-yellow-400 hover:bg-yellow-500 text-black">
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Ver Más
-                    </Button>
-                    <Button size="sm" variant="outline" className="border-gray-600 text-gray-300 hover:bg-gray-700">
-                      <Github className="w-4 h-4" />
+                  {/* Action Button - Solo GitHub */}
+                  <div className="flex justify-center pt-2">
+                    <Button size="sm" variant="outline" className="border-gray-600 text-gray-300 hover:bg-gray-700 hover:border-yellow-400">
+                      <Github className="w-4 h-4 mr-2" />
+                      Ver Código
                     </Button>
                   </div>
                 </CardContent>
