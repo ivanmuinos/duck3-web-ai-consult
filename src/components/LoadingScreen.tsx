@@ -16,14 +16,21 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
           }, 300);
           return 100;
         }
-        return prev + 4; // Aumentado de 2 a 4 para ser más rápido
+        return prev + 4;
       });
-    }, 40); // Reducido de 50ms a 40ms para más fluidez
+    }, 40);
 
     return () => clearInterval(timer);
   }, [onComplete]);
 
   if (!isVisible) return null;
+
+  // Calcula la opacidad de cada parte basado en el progreso
+  const getPartOpacity = (startPercent: number, endPercent: number) => {
+    if (progress < startPercent) return 0;
+    if (progress > endPercent) return 1;
+    return (progress - startPercent) / (endPercent - startPercent);
+  };
 
   return (
     <div className="fixed inset-0 z-[9999] bg-black flex items-center justify-center overflow-hidden">
@@ -46,68 +53,170 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
       </div>
 
       <div className="relative z-10 text-center">
-        {/* Logo duck3 mejorado */}
+        {/* Logo duck3 pintándose progresivamente */}
         <div className="mb-6 relative">
-          <div className="w-28 h-28 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-2xl flex items-center justify-center shadow-xl border-2 border-yellow-400/50 relative overflow-hidden mx-auto animate-float-up-down">
+          <div className="w-32 h-32 bg-gradient-to-br from-yellow-400/20 to-yellow-500/20 rounded-2xl flex items-center justify-center shadow-xl border-2 border-yellow-400/20 relative overflow-hidden mx-auto">
             <svg
-              width="70"
-              height="70"
+              width="80"
+              height="80"
               viewBox="0 0 40 40"
               fill="none"
-              className="text-black relative z-10"
+              className="relative z-10"
             >
-              {/* Cuerpo del pato */}
-              <ellipse cx="20" cy="26" rx="13" ry="8" fill="currentColor"/>
-              <path d="M8 26 Q10 24 12 26 Q14 28 16 26 Q18 24 20 26" stroke="#00FF88" strokeWidth="0.8" opacity="0.6"/>
-              <path d="M20 26 Q22 24 24 26 Q26 28 28 26 Q30 24 32 26" stroke="#00BFFF" strokeWidth="0.8" opacity="0.6"/>
+              {/* Cuerpo del pato - se pinta primero (0-25%) */}
+              <ellipse 
+                cx="20" 
+                cy="26" 
+                rx="13" 
+                ry="8" 
+                fill="currentColor"
+                className="text-yellow-400"
+                style={{ opacity: getPartOpacity(0, 25) }}
+              />
               
-              {/* Cabeza del pato */}
-              <circle cx="20" cy="15" r="8" fill="currentColor"/>
-              <circle cx="20" cy="15" r="6" fill="none" stroke="#FF69B4" strokeWidth="0.3" opacity="0.4"/>
+              {/* Líneas digitales del cuerpo (25-35%) */}
+              <path 
+                d="M8 26 Q10 24 12 26 Q14 28 16 26 Q18 24 20 26" 
+                stroke="#00FF88" 
+                strokeWidth="0.8" 
+                opacity={getPartOpacity(25, 35) * 0.6}
+              />
+              <path 
+                d="M20 26 Q22 24 24 26 Q26 28 28 26 Q30 24 32 26" 
+                stroke="#00BFFF" 
+                strokeWidth="0.8" 
+                opacity={getPartOpacity(25, 35) * 0.6}
+              />
               
-              {/* Pico */}
-              <path d="M12 15 L7 16 L12 17 Z" fill="#FF6B35"/>
-              <rect x="7" y="15.5" width="2" height="1" fill="#00FF88" opacity="0.6"/>
+              {/* Cabeza del pato (35-50%) */}
+              <circle 
+                cx="20" 
+                cy="15" 
+                r="8" 
+                fill="currentColor"
+                className="text-yellow-400"
+                style={{ opacity: getPartOpacity(35, 50) }}
+              />
               
-              {/* Ojo */}
-              <circle cx="22" cy="13" r="2.5" fill="white"/>
-              <circle cx="23" cy="12.5" r="1.2" fill="black"/>
-              <rect x="22.5" y="11.8" width="1.5" height="0.8" fill="#00BFFF" opacity="0.7"/>
+              {/* Círculo decorativo de la cabeza (50-55%) */}
+              <circle 
+                cx="20" 
+                cy="15" 
+                r="6" 
+                fill="none" 
+                stroke="#FF69B4" 
+                strokeWidth="0.3" 
+                opacity={getPartOpacity(50, 55) * 0.4}
+              />
               
-              {/* Elementos digitales suavizados */}
-              <g className="animate-pulse" style={{ opacity: 0.7 }}>
-                <rect x="26" y="8" width="1.5" height="1.5" fill="#00FF88" opacity="0.7"/>
-                <rect x="28" y="10" width="1.5" height="1.5" fill="#00BFFF" opacity="0.7"/>
-                <rect x="30" y="12" width="1.5" height="1.5" fill="#FF69B4" opacity="0.7"/>
-                <rect x="32" y="14" width="1.5" height="1.5" fill="#FFD700" opacity="0.7"/>
+              {/* Pico (55-65%) */}
+              <path 
+                d="M12 15 L7 16 L12 17 Z" 
+                fill="#FF6B35"
+                style={{ opacity: getPartOpacity(55, 65) }}
+              />
+              <rect 
+                x="7" 
+                y="15.5" 
+                width="2" 
+                height="1" 
+                fill="#00FF88" 
+                opacity={getPartOpacity(55, 65) * 0.6}
+              />
+              
+              {/* Ojo base (65-75%) */}
+              <circle 
+                cx="22" 
+                cy="13" 
+                r="2.5" 
+                fill="white"
+                style={{ opacity: getPartOpacity(65, 75) }}
+              />
+              
+              {/* Pupila del ojo (75-80%) */}
+              <circle 
+                cx="23" 
+                cy="12.5" 
+                r="1.2" 
+                fill="black"
+                style={{ opacity: getPartOpacity(75, 80) }}
+              />
+              
+              {/* Detalle digital del ojo (80-85%) */}
+              <rect 
+                x="22.5" 
+                y="11.8" 
+                width="1.5" 
+                height="0.8" 
+                fill="#00BFFF" 
+                opacity={getPartOpacity(80, 85) * 0.7}
+              />
+              
+              {/* Elementos digitales animados (85-95%) */}
+              <g style={{ opacity: getPartOpacity(85, 95) * 0.7 }}>
+                <rect x="26" y="8" width="1.5" height="1.5" fill="#00FF88" />
+                <rect x="28" y="10" width="1.5" height="1.5" fill="#00BFFF" />
+                <rect x="30" y="12" width="1.5" height="1.5" fill="#FF69B4" />
+                <rect x="32" y="14" width="1.5" height="1.5" fill="#FFD700" />
               </g>
               
-              {/* Número 3 */}
-              <text x="31" y="31" fontSize="10" fontWeight="bold" fill="currentColor" className="font-mono">3</text>
+              {/* Número 3 final (95-100%) */}
+              <text 
+                x="31" 
+                y="31" 
+                fontSize="10" 
+                fontWeight="bold" 
+                fill="currentColor" 
+                className="font-mono text-yellow-400"
+                style={{ opacity: getPartOpacity(95, 100) }}
+              >
+                3
+              </text>
             </svg>
             
-            {/* Efectos de brillo más sutiles */}
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-pink-400/20 animate-pulse"></div>
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-yellow-400/20"></div>
+            {/* Efectos de brillo progresivos */}
+            <div 
+              className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-pink-400/20"
+              style={{ opacity: getPartOpacity(0, 100) * 0.3 }}
+            ></div>
+            <div 
+              className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-yellow-400/20"
+              style={{ opacity: getPartOpacity(50, 100) * 0.4 }}
+            ></div>
             
-            {/* Anillos giratorios más suaves */}
-            <div className="absolute inset-0 border border-yellow-400/20 rounded-2xl animate-spin-slow"></div>
-            <div className="absolute inset-2 border border-blue-400/15 rounded-xl animate-spin-slow" style={{ animationDirection: 'reverse' }}></div>
+            {/* Anillos giratorios que aparecen al final */}
+            <div 
+              className="absolute inset-0 border border-yellow-400/20 rounded-2xl animate-spin-slow"
+              style={{ opacity: getPartOpacity(90, 100) }}
+            ></div>
+            <div 
+              className="absolute inset-2 border border-blue-400/15 rounded-xl animate-spin-slow" 
+              style={{ 
+                animationDirection: 'reverse',
+                opacity: getPartOpacity(95, 100)
+              }}
+            ></div>
           </div>
         </div>
 
-        {/* Texto más sutil */}
-        <h1 className="text-5xl font-bold text-yellow-400 mb-3 animate-fade-in opacity-90">
+        {/* Texto que aparece progresivamente */}
+        <h1 
+          className="text-5xl font-bold text-yellow-400 mb-3"
+          style={{ opacity: getPartOpacity(70, 90) }}
+        >
           duck3
         </h1>
-        <p className="text-lg text-gray-300 mb-6 animate-slide-in-from-bottom-2 delay-300 opacity-80">
-          Cargando experiencia inteligente...
+        <p 
+          className="text-lg text-gray-300 mb-6"
+          style={{ opacity: getPartOpacity(80, 95) }}
+        >
+          Pintando experiencia inteligente...
         </p>
 
-        {/* Barra de progreso mejorada */}
+        {/* Barra de progreso */}
         <div className="w-72 mx-auto">
           <div className="flex justify-between text-sm text-gray-400 mb-2 opacity-80">
-            <span>Inicializando</span>
+            <span>Cargando</span>
             <span>{progress}%</span>
           </div>
           <div className="w-full bg-gray-700 rounded-full h-1.5 overflow-hidden">
@@ -120,15 +229,18 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
           </div>
         </div>
 
-        {/* Puntos de carga más sutiles */}
-        <div className="flex justify-center space-x-2 mt-4">
+        {/* Puntos de carga que aparecen al final */}
+        <div 
+          className="flex justify-center space-x-2 mt-4"
+          style={{ opacity: getPartOpacity(90, 100) }}
+        >
           <div className="w-2 h-2 bg-yellow-400 rounded-full animate-bounce opacity-70"></div>
           <div className="w-2 h-2 bg-yellow-400 rounded-full animate-bounce delay-100 opacity-70"></div>
           <div className="w-2 h-2 bg-yellow-400 rounded-full animate-bounce delay-200 opacity-70"></div>
         </div>
       </div>
 
-      {/* Efectos de partículas más sutiles */}
+      {/* Efectos de partículas sutiles */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(15)].map((_, i) => (
           <div
@@ -138,7 +250,8 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 2}s`
+              animationDuration: `${2 + Math.random() * 2}s`,
+              opacity: getPartOpacity(0, 100) * 0.4
             }}
           />
         ))}
