@@ -43,8 +43,14 @@ const Services = () => {
   ];
 
   return (
-    <section id="servicios" className="py-20 bg-gray-900">
-      <div className="container mx-auto px-4">
+    <section id="servicios" className="py-20 bg-transparent relative overflow-hidden">
+      {/* Subtle background effects */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-black/10 via-slate-900/5 to-black/20"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.01)_0%,transparent_50%)]"></div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-white mb-4">
             Nuestros Servicios
@@ -59,30 +65,28 @@ const Services = () => {
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <Card key={index} className="group hover:shadow-2xl transition-all duration-300 bg-gray-800 border-gray-700 hover:border-yellow-400/50 hover:-translate-y-2">
-                <CardContent className="p-8">
-                  <div className="w-16 h-16 bg-yellow-400/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-yellow-400 transition-colors border border-yellow-400/30">
-                    <Icon className="w-8 h-8 text-yellow-400 group-hover:text-gray-900 transition-colors" />
-                  </div>
-                  
-                  <h3 className="text-xl font-bold text-white mb-4">
-                    {service.title}
-                  </h3>
-                  
-                  <p className="text-gray-300 mb-6">
-                    {service.description}
-                  </p>
-                  
-                  <ul className="space-y-2">
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center text-sm text-gray-400">
-                        <div className="w-2 h-2 bg-yellow-400 rounded-full mr-3"></div>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+              <div key={index} className="group hover:shadow-2xl transition-all duration-300 bg-black/20 backdrop-blur-sm hover:bg-black/30 hover:-translate-y-2 rounded-xl p-8">
+                <div className="w-16 h-16 bg-yellow-400/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-yellow-400/30 transition-colors backdrop-blur-sm">
+                  <Icon className="w-8 h-8 text-yellow-400 transition-colors" />
+                </div>
+                
+                <h3 className="text-xl font-bold text-white mb-4">
+                  {service.title}
+                </h3>
+                
+                <p className="text-gray-300 mb-6">
+                  {service.description}
+                </p>
+                
+                <ul className="space-y-2">
+                  {service.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-center text-sm text-gray-400">
+                      <div className="w-2 h-2 bg-yellow-400 rounded-full mr-3"></div>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             );
           })}
         </div>
