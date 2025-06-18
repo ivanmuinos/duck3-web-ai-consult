@@ -1,6 +1,9 @@
 import { Target, Users, Trophy, Lightbulb } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const About = () => {
+  const { t } = useTranslation();
+  
   const values = [
     {
       icon: Target,
@@ -36,18 +39,17 @@ const About = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold text-white mb-4">
-              Sobre duck3
+              {t('aboutTitle')}
             </h2>
             <p className="text-xl text-gray-200 font-medium">
-              Somos expertos en transformación digital que ayudamos a empresas 
-              a aprovechar el poder de la tecnología y la inteligencia artificial.
+              {t('aboutSubtitle')}
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
             <div>
               <h3 className="text-3xl font-bold text-white mb-6">
-                ¿Por qué elegir duck3?
+                {t('whyChoose')}
               </h3>
               <div className="space-y-4">
                 <p className="text-gray-200 font-medium">
@@ -94,11 +96,10 @@ const About = () => {
                   <div className="absolute top-2 right-2 w-1 h-1 bg-cyan-400 rounded-full animate-ping"></div>
                   <div className="absolute bottom-3 left-3 w-1 h-1 bg-pink-400 rounded-full animate-ping animation-delay-75"></div>
                 </div>
-                <h4 className="text-xl font-bold text-white">Nuestra Misión</h4>
+                <h4 className="text-xl font-bold text-white">{t('ourMission')}</h4>
               </div>
               <p className="text-gray-200 text-center font-medium">
-                Hacer que la tecnología avanzada sea accesible y práctica para cualquier negocio, 
-                transformando ideas en soluciones digitales que generen impacto real.
+                {t('missionText')}
               </p>
             </div>
           </div>

@@ -3,8 +3,10 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Mail, MessageSquare, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Contact = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -32,10 +34,10 @@ const Contact = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-white mb-4 animate-fade-in">
-            ¿Listo para transformar tu negocio?
+            {t('contactTitle')}
           </h2>
           <p className="text-xl text-gray-300 mb-12 animate-fade-in delay-200">
-            Conversemos sobre cómo duck3 puede impulsar tu empresa con tecnología inteligente.
+            {t('contactSubtitle')}
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
@@ -43,7 +45,7 @@ const Contact = () => {
               <div className="w-16 h-16 bg-gradient-to-br from-blue-500/80 to-blue-600/80 rounded-xl flex items-center justify-center mx-auto mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 backdrop-blur-sm">
                 <Mail className="w-8 h-8 text-white" />
               </div>
-              <h3 className="font-semibold text-white mb-2 transition-colors duration-300 group-hover:text-yellow-400">Email</h3>
+              <h3 className="font-semibold text-white mb-2 transition-colors duration-300 group-hover:text-yellow-400">{t('email')}</h3>
               <p className="text-gray-300 text-sm">hola@duck3.dev</p>
             </div>
 
@@ -51,8 +53,8 @@ const Contact = () => {
               <div className="w-16 h-16 bg-gradient-to-br from-green-500/80 to-green-600/80 rounded-xl flex items-center justify-center mx-auto mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 backdrop-blur-sm">
                 <MessageSquare className="w-8 h-8 text-white" />
               </div>
-              <h3 className="font-semibold text-white mb-2 transition-colors duration-300 group-hover:text-yellow-400">WhatsApp</h3>
-              <p className="text-gray-300 text-sm">Mensaje directo</p>
+              <h3 className="font-semibold text-white mb-2 transition-colors duration-300 group-hover:text-yellow-400">{t('whatsapp')}</h3>
+              <p className="text-gray-300 text-sm">{t('directMessage')}</p>
             </div>
 
             <div 
@@ -62,18 +64,18 @@ const Contact = () => {
               <div className="w-16 h-16 bg-gradient-to-br from-purple-500/80 to-purple-600/80 rounded-xl flex items-center justify-center mx-auto mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 backdrop-blur-sm">
                 <Calendar className="w-8 h-8 text-white" />
               </div>
-              <h3 className="font-semibold text-white mb-2 transition-colors duration-300 group-hover:text-yellow-400">Reunión</h3>
-              <p className="text-gray-300 text-sm">Agenda una llamada</p>
+              <h3 className="font-semibold text-white mb-2 transition-colors duration-300 group-hover:text-yellow-400">{t('meeting')}</h3>
+              <p className="text-gray-300 text-sm">{t('scheduleCall')}</p>
             </div>
           </div>
 
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 animate-fade-in delay-600">
             <Button size="lg" className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-gray-900 px-8 py-3 text-lg font-semibold transition-all duration-300 hover:scale-105 hover:shadow-xl group">
-              <span className="transition-transform duration-300 group-hover:scale-110">Consulta Gratuita</span>
+              <span className="transition-transform duration-300 group-hover:scale-110">{t('freeConsultation')}</span>
             </Button>
             <Button asChild variant="outline" size="lg" className="border-gray-600 text-gray-300 hover:bg-black/30 hover:text-yellow-400 hover:border-yellow-400 px-8 py-3 text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl group backdrop-blur-sm">
               <Link to="/portafolio">
-                <span className="transition-transform duration-300 group-hover:scale-110">Ver Portafolio</span>
+                <span className="transition-transform duration-300 group-hover:scale-110">{t('viewPortfolio')}</span>
               </Link>
             </Button>
           </div>

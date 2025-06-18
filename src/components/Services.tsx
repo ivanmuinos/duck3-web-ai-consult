@@ -1,8 +1,10 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Code2, Bot, Smartphone, Database, Cloud, Zap } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const Services = () => {
+  const { t } = useTranslation();
+  
   const services = [
     {
       icon: Code2,
@@ -53,11 +55,10 @@ const Services = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-white mb-4">
-            Nuestros Servicios
+            {t('servicesTitle')}
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Ofrecemos soluciones tecnológicas integrales que transforman la manera 
-            en que tu empresa opera y crece.
+            {t('servicesSubtitle')}
           </p>
         </div>
 
