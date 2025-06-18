@@ -1,8 +1,23 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Code, Bot } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
+
+  const handleStartProject = () => {
+    // Scroll to contact section
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleViewPortfolio = () => {
+    navigate('/portafolio');
+  };
+
   return (
     <section className="pt-32 pb-20 bg-gradient-to-br from-black via-gray-900 to-blue-900 relative overflow-hidden">
       {/* Animated neural network background */}
@@ -28,11 +43,20 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-12 animate-scale-in delay-500">
-            <Button size="lg" className="bg-yellow-400 hover:bg-yellow-500 text-black px-8 py-4 text-lg font-bold shadow-xl border border-yellow-300 hover:shadow-yellow-400/30 transition-all duration-300">
+            <Button 
+              size="lg" 
+              className="bg-yellow-400 hover:bg-yellow-500 text-black px-8 py-4 text-lg font-bold shadow-xl border border-yellow-300 hover:shadow-yellow-400/30 transition-all duration-300"
+              onClick={handleStartProject}
+            >
               Comenzar Proyecto
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
-            <Button variant="outline" size="lg" className="px-8 py-4 text-lg border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black font-semibold transition-all duration-300">
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="px-8 py-4 text-lg border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black font-semibold transition-all duration-300"
+              onClick={handleViewPortfolio}
+            >
               Ver Casos de Éxito
             </Button>
           </div>

@@ -1,17 +1,30 @@
-
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Mail, MessageCircle, Calendar } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Mail, Phone, MapPin, Send, Calendar, MessageSquare, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+  };
+
   const handleCalendlyClick = () => {
     // Reemplaza 'tu-usuario-calendly' con tu nombre de usuario real de Calendly
     window.open('https://calendly.com/tu-usuario-calendly/30min', '_blank');
   };
 
   return (
-    <section id="contacto" className="py-20 bg-gray-900 relative overflow-hidden">
+    <section id="contact" className="py-20 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-10 w-32 h-32 bg-yellow-400 rounded-full blur-3xl animate-pulse"></div>
