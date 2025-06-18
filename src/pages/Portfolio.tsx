@@ -1,3 +1,4 @@
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -53,7 +54,7 @@ const Portfolio = () => {
       id: 4,
       title: "MedConnect Platform",
       description: "Plataforma de telemedicina con integración de dispositivos IoT y análisis predictivo",
-      image: "photo-1576091160399-112ba8d25d1f",
+      image: "photo-1559757148-5c350d0d3c56",
       technologies: ["React", "Node.js", "PostgreSQL", "IoT", "AI/ML"],
       category: "Healthcare",
       year: "2023",
