@@ -5,21 +5,37 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="flex items-center space-x-3 mb-4 md:mb-0">
-            <div className="w-10 h-10 bg-yellow-400 rounded-lg flex items-center justify-center shadow-xl border-2 border-yellow-300">
+            <div className="w-10 h-10 bg-gradient-to-br from-yellow-300 to-yellow-500 rounded-lg flex items-center justify-center shadow-xl border-2 border-yellow-300 relative overflow-hidden">
               <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
+                width="28"
+                height="28"
+                viewBox="0 0 40 40"
                 fill="none"
-                className="text-black"
+                className="text-black relative z-10"
               >
-                <path
-                  d="M8.5 5c-2.5 0-4.5 2-4.5 4.5 0 1.5 0.8 2.8 2 3.5L6 18c0 1.1 0.9 2 2 2h8c1.1 0 2-0.9 2-2l0-5c1.2-0.7 2-2 2-3.5C20 7 18 5 15.5 5c-1 0-1.9 0.3-2.6 0.8C12.4 5.3 11.5 5 10.5 5H8.5z"
-                  fill="currentColor"
-                />
-                <circle cx="9" cy="8" r="1.2" fill="#000"/>
-                <path d="M7 9.5c0.5 0.3 1.1 0.5 1.8 0.5" stroke="currentColor" strokeWidth="1" fill="none"/>
+                {/* Duck body */}
+                <ellipse cx="20" cy="25" rx="12" ry="7" fill="currentColor"/>
+                
+                {/* Duck head */}
+                <circle cx="20" cy="15" r="7" fill="currentColor"/>
+                
+                {/* Duck beak */}
+                <path d="M13 15 L9 16 L13 17 Z" fill="#FF6B35"/>
+                
+                {/* Duck eye */}
+                <circle cx="22" cy="13" r="1.5" fill="white"/>
+                <circle cx="22.5" cy="12.5" r="0.8" fill="black"/>
+                
+                {/* Digital accent */}
+                <rect x="26" y="10" width="1" height="1" fill="#00FF88" opacity="0.8"/>
+                <rect x="28" y="12" width="1" height="1" fill="#00BFFF" opacity="0.8"/>
+                
+                {/* Number 3 */}
+                <text x="30" y="28" fontSize="6" fontWeight="bold" fill="currentColor">3</text>
               </svg>
+              
+              {/* Subtle glow */}
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-pink-400/20 animate-pulse"></div>
             </div>
             <span className="text-2xl font-bold text-yellow-400">duck3</span>
           </div>

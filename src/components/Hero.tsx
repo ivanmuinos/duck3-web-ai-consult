@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Code, Bot } from "lucide-react";
 
@@ -52,21 +51,41 @@ const Hero = () => {
             </div>
             
             <div className="text-center">
-              <div className="w-20 h-20 bg-yellow-400/20 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-yellow-400/50">
+              <div className="w-20 h-20 bg-gradient-to-br from-yellow-300 to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-yellow-400/50 relative overflow-hidden">
                 <svg
-                  width="40"
-                  height="40"
-                  viewBox="0 0 24 24"
+                  width="44"
+                  height="44"
+                  viewBox="0 0 40 40"
                   fill="none"
-                  className="text-yellow-400"
+                  className="text-black relative z-10"
                 >
-                  <path
-                    d="M8.5 5c-2.5 0-4.5 2-4.5 4.5 0 1.5 0.8 2.8 2 3.5L6 18c0 1.1 0.9 2 2 2h8c1.1 0 2-0.9 2-2l0-5c1.2-0.7 2-2 2-3.5C20 7 18 5 15.5 5c-1 0-1.9 0.3-2.6 0.8C12.4 5.3 11.5 5 10.5 5H8.5z"
-                    fill="currentColor"
-                  />
-                  <circle cx="9" cy="8" r="1.5" fill="#000"/>
-                  <path d="M7 10c0.8 0.4 1.7 0.6 2.6 0.6" stroke="#000" strokeWidth="1.2" fill="none"/>
+                  {/* Duck body */}
+                  <ellipse cx="20" cy="25" rx="12" ry="8" fill="currentColor"/>
+                  
+                  {/* Duck head */}
+                  <circle cx="20" cy="15" r="8" fill="currentColor"/>
+                  
+                  {/* Duck beak */}
+                  <path d="M12 15 L8 16 L12 17 Z" fill="#FF6B35"/>
+                  
+                  {/* Duck eye */}
+                  <circle cx="22" cy="13" r="2" fill="white"/>
+                  <circle cx="23" cy="12.5" r="1" fill="black"/>
+                  
+                  {/* Digital elements - circuit lines */}
+                  <path d="M30 8 L35 8 L35 12" stroke="#00FF88" strokeWidth="1" fill="none" opacity="0.8"/>
+                  <path d="M32 10 L37 10 L37 15" stroke="#00BFFF" strokeWidth="1" fill="none" opacity="0.8"/>
+                  <circle cx="35" cy="8" r="1" fill="#00FF88"/>
+                  <circle cx="37" cy="10" r="1" fill="#00BFFF"/>
+                  
+                  {/* Wing with tech pattern */}
+                  <path d="M28 20 Q32 18 30 24 Q28 22 28 20" fill="rgba(0,0,0,0.2)"/>
+                  <rect x="29" y="21" width="1" height="1" fill="#00FF88" opacity="0.6"/>
+                  <rect x="30" y="19" width="1" height="1" fill="#00BFFF" opacity="0.6"/>
                 </svg>
+                
+                {/* Animated digital glow */}
+                <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/30 to-pink-400/30 animate-pulse"></div>
               </div>
               <h3 className="font-bold text-white mb-2 text-lg">Consultoría</h3>
               <p className="text-gray-300 text-sm font-medium">Estrategia tecnológica personalizada</p>
