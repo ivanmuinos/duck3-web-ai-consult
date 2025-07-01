@@ -4,7 +4,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  base: "/duck3-web-ai-consult",
+  base: "/duck3-web-ai-consult/",
   server: {
     host: "::",
     port: 8080,
