@@ -14,7 +14,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter basename='/duck3-web-ai-consult/'>
+      <BrowserRouter basename='/'>
         {/* 👆 clave: basename igual al base del vite.config.js */}
         <Routes>
           <Route path='/' element={<Index />} />
