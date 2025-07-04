@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Mail, MessageCircle, Calendar, ChevronDown, Menu } from "lucide-react";
@@ -15,15 +14,15 @@ const Header = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation();
-  
+
   const handleNavClick = (sectionId: string) => {
     setIsOpen(false);
-    if (location.pathname !== '/') {
-      navigate('/');
+    if (location.pathname !== "/") {
+      navigate("/");
       setTimeout(() => {
         const element = document.getElementById(sectionId);
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
         }
       }, 300);
     } else {
@@ -33,7 +32,7 @@ const Header = () => {
         const elementPosition = element.offsetTop - headerHeight;
         window.scrollTo({
           top: elementPosition,
-          behavior: 'smooth'
+          behavior: "smooth",
         });
       }
     }
@@ -41,41 +40,48 @@ const Header = () => {
 
   const handlePortfolioClick = () => {
     setIsOpen(false);
-    navigate('/portafolio');
+    navigate("/portafolio");
     setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }, 100);
   };
 
   const handleConsultationClick = (type: string) => {
     setIsOpen(false);
     switch (type) {
-      case 'email':
-        window.location.href = 'mailto:hola@duck3.dev';
+      case "email":
+        window.location.href = "mailto:ivan.muinos@gmail.com";
         break;
-      case 'whatsapp':
-        window.open('https://wa.me/1234567890', '_blank');
+      case "whatsapp":
+        window.open("https://wa.me/5491130663794", "_blank");
         break;
-      case 'calendar':
-        window.open('https://calendly.com/tu-usuario-calendly/30min', '_blank');
+      case "calendar":
+        window.open(
+          "https://calendar.google.com/calendar/u/0/r/eventedit?text=Reunión%20con%20Ivan%20Muinos&details=Agendá%20una%20reunión%20de%20consultoría%20gratuita%20con%20Ivan%20Muinos&add=ivan.muinos@gmail.com",
+          "_blank"
+        );
         break;
     }
   };
 
   return (
-    <header className="py-6 animate-fade-in bg-transparent">
-      <div className="container mx-auto px-4 flex items-center justify-between">
-        <Logo />
-        
-        <DesktopNav 
-          handleNavClick={handleNavClick}
-          handlePortfolioClick={handlePortfolioClick}
-        />
+    <header className='py-6 animate-fade-in bg-transparent'>
+      <div className='container mx-auto px-4 flex items-center'>
+        <div className='flex-1 flex items-center'>
+          <Logo />
+        </div>
 
-        <div className="flex items-center space-x-2">
+        <div className='flex-1 flex items-center justify-center'>
+          <DesktopNav
+            handleNavClick={handleNavClick}
+            handlePortfolioClick={handlePortfolioClick}
+          />
+        </div>
+
+        <div className='flex-1 flex items-center justify-end space-x-2'>
           <LanguageSelector />
-          
-          <MobileNav 
+
+          <MobileNav
             isOpen={isOpen}
             setIsOpen={setIsOpen}
             handleNavClick={handleNavClick}
@@ -83,7 +89,9 @@ const Header = () => {
             handleConsultationClick={handleConsultationClick}
           />
 
-          <ConsultationDropdown handleConsultationClick={handleConsultationClick} />
+          <ConsultationDropdown
+            handleConsultationClick={handleConsultationClick}
+          />
         </div>
       </div>
     </header>
